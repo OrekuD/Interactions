@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home.tsx";
 import ViennaSlider from "./pages/ViennaSlider/ViennaSlider.tsx";
+import RadialDropdown from "./pages/RadialDropdown/RadialDropdown.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "vienna-slider",
     element: <ViennaSlider />,
+  },
+  {
+    path: "radial-dropdown",
+    element: <RadialDropdown />,
   },
 ]);
 

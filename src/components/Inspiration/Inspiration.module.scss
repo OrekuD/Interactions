@@ -1,0 +1,28 @@
+@import "../../scss/variables";
+
+.container {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    padding: 0.5rem 2rem;
+    border-radius: 6px;
+    z-index: 1000;
+    text-decoration: none;
+    border: 2px solid black;
+    transition: background 0.5s $easing1;
+
+    p {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        transition: color 0.5s $easing1;
+    }
+
+    &:hover {
+        background: black;
+
+        p {
+            color: white;
+        }
+    }
+}
