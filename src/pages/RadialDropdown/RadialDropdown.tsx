@@ -54,7 +54,7 @@ export default function RadialDropdown(props: RadialDropdownProps) {
           let opacity = 0;
 
           if (isOpen) {
-            rotate = (index - selectedIndex) * 7.5;
+            rotate = (index - selectedIndex) * 5;
             opacity = Math.abs(index - selectedIndex) > 3 ? 0 : 1;
           } else {
             opacity = index === selectedIndex ? 1 : 0;

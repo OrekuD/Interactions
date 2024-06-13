@@ -1,8 +1,4 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -17,6 +13,9 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    line-height: 1.5;
+    font-weight: 400;
+    color: black;
 }
 
 html,
@@ -26,6 +25,7 @@ body,
     width: 100%;
 }
 
-button {
+button,
+a {
     all: unset;
 }

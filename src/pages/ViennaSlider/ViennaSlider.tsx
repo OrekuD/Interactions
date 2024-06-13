@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./ViennaSlider.module.scss";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
+import useKeyPress from "../../hooks/useKeyPress";
 
 type ViennaSliderProps = {
   images?: Array<string>;
@@ -16,6 +17,39 @@ export default function ViennaSlider(props: ViennaSliderProps) {
     "https://images.unsplash.com/photo-1592179896083-09083e2c2099?q=80&w=1400&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1573167443175-867d91708f97?q=80&w=1400&auto=format&fit=crop",
   ];
+
+  useKeyPress("Escape", () => {
+    setIsSlideActive(false);
+  });
+
+  useKeyPress("ArrowUp", () => {
+    if (!isSlideActive) return;
+    setActiveIndex((prevValue) =>
+      prevValue === 0 ? prevValue : prevValue - 1,
+    );
+  });
+
+  useKeyPress("ArrowLeft", () => {
+    if (!isSlideActive) return;
+    setActiveIndex((prevValue) =>
+      prevValue === 0 ? prevValue : prevValue - 1,
+    );
+  });
+
+  useKeyPress("ArrowDown", () => {
+    if (!isSlideActive) return;
+    setActiveIndex((prevValue) =>
+      prevValue === images.length - 1 ? prevValue : prevValue + 1,
+    );
+  });
+
+  useKeyPress("ArrowRight", () => {
+    if (!isSlideActive) return;
+    setActiveIndex((prevValue) =>
+      prevValue === images.length - 1 ? prevValue : prevValue + 1,
+    );
+  });
+
   return (
     <PageWrapper
       inspirationProps={{
@@ -72,13 +106,15 @@ export default function ViennaSlider(props: ViennaSliderProps) {
             let opacity = 1;
 
             if (isSlideActive) {
-              translateX = -50 + (index - activeIndex) * 100;
+              translateX =
+                index < activeIndex ? -50 : -50 + (index - activeIndex) * 100;
               scale = index < activeIndex ? 0 : 1;
-              rotate = index < activeIndex ? 30 : 0;
+              rotate = index < activeIndex ? 15 : 0;
               opacity = index < activeIndex ? 0 : 1;
             } else {
-              scale = index > 2 ? 0 : 1;
-              rotate = index === 0 ? 0 : index === 1 ? 8 : -8;
+              // scale = index > 2 ? 0 : 1;
+              // rotate = index === 0 ? 0 : index === 1 ? 8 : -8;
+              rotate = index === 0 ? 0 : index % 2 === 0 ? 8 : -8;
             }
 
             const transform = `translate(${translateX}%, -50%) rotate(${rotate}deg) scale(${scale})`;
