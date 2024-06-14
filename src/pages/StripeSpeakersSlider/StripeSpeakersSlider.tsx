@@ -1,4 +1,5 @@
 import React from "react";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import classes from "./StripeSpeakersSlider.module.scss";
 import yinWu from "../../assets/stripe-slider/yin_wu.jpg";
 import peter from "../../assets/stripe-slider/peter_fitzpatrick.jpg";
@@ -10,9 +11,10 @@ import ted from "../../assets/stripe-slider/ted_power.jpg";
 import simon from "../../assets/stripe-slider/simon_taylor.jpg";
 import angela from "../../assets/stripe-slider/angela_strange.jpg";
 import christa from "../../assets/stripe-slider/christa_davies.jpg";
-import PageWrapper from "../../components/PageWrapper/PageWrapper";
 
 const expandedWidth = 550;
+
+const root: any = document.querySelector(":root");
 
 const speakers = [
   {
@@ -58,8 +60,39 @@ const speakers = [
 ];
 
 export default function StripeSpeakersSlider() {
-  const [slideIndex, setSlideIndex] = React.useState(4);
+  const [slideIndex, setSlideIndex] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    function onResize() {
+      adjustSlide(slideIndex);
+    }
+
+    window.addEventListener("resize", onResize);
+
+    return () => window.removeEventListener("resize", onResize);
+  }, [slideIndex, containerRef]);
+
+  function adjustSlide(index: number) {
+    const containerWidth = containerRef.current?.offsetWidth;
+
+    if (!containerWidth) return;
+
+    const maxNumberOfVisibleSlides = Math.floor(
+      (containerWidth - expandedWidth) / (100 + 24),
+    );
+
+    let translateX = 0;
+
+    if (index >= maxNumberOfVisibleSlides) {
+      translateX =
+        index === speakers.length - 1
+          ? (index + 2 - maxNumberOfVisibleSlides) * -100
+          : (index + 3 - maxNumberOfVisibleSlides) * -100;
+    }
+
+    root.style.setProperty("--translate-x", `${translateX}px`);
+  }
 
   return (
     <PageWrapper title="Stripe Speakers Slider">
@@ -72,11 +105,23 @@ export default function StripeSpeakersSlider() {
                 key={index}
                 onClick={() => {
                   setSlideIndex(index);
-                  const containerWidth = containerRef.current?.offsetWidth;
+                  // const containerWidth = containerRef.current?.offsetWidth;
 
-                  if (!containerWidth) return;
+                  // if (!containerWidth) return;
 
-                  // const count = containerWidth - expandedWidth;
+                  // const maxNumberOfVisibleSlides = Math.floor(
+                  //   (containerWidth - expandedWidth) / (100 + 24),
+                  // );
+
+                  // let translateX = 0;
+
+                  // if (index >= maxNumberOfVisibleSlides) {
+                  //   translateX = (index + 3 - maxNumberOfVisibleSlides) * -100;
+                  // }
+
+                  // root.style.setProperty("--translate-x", `${translateX}px`);
+
+                  adjustSlide(index);
                 }}
                 className={classes["slide"]}
                 style={{
@@ -100,10 +145,22 @@ export default function StripeSpeakersSlider() {
                     minWidth: expandedWidth,
                   }}
                 >
-                  <p className={classes["description"]}>
+                  <p
+                    className={classes["description"]}
+                    style={{
+                      opacity: isActive ? 1 : undefined,
+                    }}
+                  >
                     Quis anim esse tempor magna eu esse velit.
                   </p>
-                  <p className={classes["name"]}>{name}</p>
+                  <p
+                    className={classes["name"]}
+                    style={{
+                      opacity: isActive ? 1 : undefined,
+                    }}
+                  >
+                    {name}
+                  </p>
                 </div>
               </div>
             );

@@ -72,7 +72,7 @@ export default function HarmonicGallery() {
       <div className={classes["cursor"]}>
         <p ref={paragraphRef}></p>
       </div>
-      <p className={classes["hint"]}>Click anywhere to enable sound</p>
+      <p className={classes["hint"]}>Sound on</p>
       <div
         className={classes["container"]}
         onMouseOver={() => {

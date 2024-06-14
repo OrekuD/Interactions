@@ -29,8 +29,8 @@
             margin-right: 24px;
             transition:
                 width 0.7s $easing1,
-                transform 0.7s $easing1;
-            /* transform: translateX(-300px); */
+                transform 0.7s ease;
+            transform: translateX(var(--translate-x));
 
             .content {
                 position: absolute;

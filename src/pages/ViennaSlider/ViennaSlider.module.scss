@@ -40,9 +40,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 30vw;
-            max-height: 90%;
+            /* width: 80%; */
+            /* max-width: 30vw; */
+            /* max-height: 90%; */
+            height: 70vh;
             aspect-ratio: 1 / 1.5;
             transition:
                 transform 0.7s $easing1,
