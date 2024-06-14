@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from "react";
 
-const useKeyPress = (targetKey: string, action: () => void) => {
+export default function useKeyPress(targetKey: string, action: () => void) {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === targetKey) {
@@ -19,6 +19,4 @@ const useKeyPress = (targetKey: string, action: () => void) => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
-};
-
-export default useKeyPress;
+}

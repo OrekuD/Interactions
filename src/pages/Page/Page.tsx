@@ -1,4 +1,5 @@
 // import React from "react";
+import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import classes from "./Page.module.scss";
 
 type PageProps = {
@@ -6,5 +7,9 @@ type PageProps = {
 };
 
 export default function Page(_: PageProps) {
-  return <div className={classes["container"]}></div>;
+  return (
+    <PageWrapper title="Page">
+      <div className={classes["container"]}></div>
+    </PageWrapper>
+  );
 }

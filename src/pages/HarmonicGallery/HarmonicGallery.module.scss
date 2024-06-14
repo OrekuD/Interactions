@@ -1,0 +1,63 @@
+@import "../../scss/variables";
+
+.container {
+    width: 100%;
+    padding: 0 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+
+    .slide {
+        flex: 1;
+        height: 150px;
+        background: black;
+        transition: flex 1s $easing1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            flex: 1.4;
+        }
+
+        .video {
+            height: 50%;
+        }
+    }
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #f1ede7;
+    padding: 0 0.4rem;
+    height: 22px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    opacity: var(--mouse-opacity);
+    pointer-events: none;
+    transform: translate(
+        calc(var(--mouse-x) + var(--mouse-offset-x)),
+        calc(var(--mouse-y))
+    );
+    transition:
+        transform 0.1s ease,
+        opacity 0.1s ease;
+
+    p {
+        font-size: 0.6rem;
+        font-weight: 600;
+        color: black;
+    }
+}
+
+.hint {
+    position: absolute;
+    top: 7rem;
+    left: 2.5rem;
+    width: 100%;
+    font-weight: 500;
+}

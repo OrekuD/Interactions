@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home.tsx";
 import ViennaSlider from "./pages/ViennaSlider/ViennaSlider.tsx";
 import RadialDropdown from "./pages/RadialDropdown/RadialDropdown.tsx";
+import StripeSpeakersSlider from "./pages/StripeSpeakersSlider/StripeSpeakersSlider.tsx";
+import HarmonicGallery from "./pages/HarmonicGallery/HarmonicGallery.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
   {
     path: "radial-dropdown",
     element: <RadialDropdown />,
+  },
+  {
+    path: "stripe-speakers-slider",
+    element: <StripeSpeakersSlider />,
+  },
+  {
+    path: "harmonic-gallery",
+    element: <HarmonicGallery />,
   },
 ]);
 

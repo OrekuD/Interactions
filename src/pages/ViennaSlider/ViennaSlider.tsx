@@ -11,11 +11,11 @@ export default function ViennaSlider(props: ViennaSliderProps) {
   const [isSlideActive, setIsSlideActive] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const images = props.images || [
-    "https://images.unsplash.com/photo-1609856878074-cf31e21ccb6b?q=80&w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1519923041107-e4dc8d9193da?q=80&w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1572085313473-08e54ae31fc8?q=80&w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1592179896083-09083e2c2099?q=80&w=1400&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1573167443175-867d91708f97?q=80&w=1400&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1609856878074-cf31e21ccb6b?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1519923041107-e4dc8d9193da?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1572085313473-08e54ae31fc8?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1592179896083-09083e2c2099?q=80&w=600&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1573167443175-867d91708f97?q=80&w=600&auto=format&fit=crop",
   ];
 
   useKeyPress("Escape", () => {
@@ -52,9 +52,8 @@ export default function ViennaSlider(props: ViennaSliderProps) {
 
   return (
     <PageWrapper
-      inspirationProps={{
-        url: "https://x.com/nickpylll/status/1800110285069721793",
-      }}
+      title="Vienna Slider"
+      inspirationUrl="https://x.com/nickpylll/status/1800110285069721793"
     >
       <div className={classes["container"]}>
         <div

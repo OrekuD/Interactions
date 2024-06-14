@@ -16,6 +16,10 @@ export default function RadialDropdown(props: RadialDropdownProps) {
     "In Review",
     "Shipped",
     "Blocked",
+    "In Progress",
+    "In Review",
+    "Shipped",
+    "Blocked",
   ];
 
   useKeyPress("Escape", () => {
@@ -38,9 +42,8 @@ export default function RadialDropdown(props: RadialDropdownProps) {
 
   return (
     <PageWrapper
-      inspirationProps={{
-        url: "https://x.com/nitishkmrk/status/1781934894362538196",
-      }}
+      title="Radial Dropdown"
+      inspirationUrl="https://x.com/nitishkmrk/status/1781934894362538196"
     >
       <button
         className={classes["container"]}
@@ -55,7 +58,7 @@ export default function RadialDropdown(props: RadialDropdownProps) {
 
           if (isOpen) {
             rotate = (index - selectedIndex) * 5;
-            opacity = Math.abs(index - selectedIndex) > 3 ? 0 : 1;
+            opacity = Math.abs(index - selectedIndex) > 4 ? 0 : 1;
           } else {
             opacity = index === selectedIndex ? 1 : 0;
           }

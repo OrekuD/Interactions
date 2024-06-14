@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-import radialDropdown from "../../assets/gifs/radial-dropdown.gif";
-import viennaSlider from "../../assets/gifs/vienna-slider.gif";
+import radialDropdown from "../../assets/menu-demos/radial-dropdown.gif";
+import viennaSlider from "../../assets/menu-demos/vienna-slider.gif";
 import classes from "./Home.module.scss";
 
 const links = [
   { label: "Vienna Images Slider", to: "/vienna-slider", demo: viennaSlider },
   { label: "Radial Dropdown", to: "/radial-dropdown", demo: radialDropdown },
+  {
+    label: "Stripe Speakers Slider",
+    to: "/stripe-speakers-slider",
+  },
+  {
+    label: "Harmonic Gallery",
+    to: "/harmonic-gallery",
+  },
 ];
 
 export default function Home() {
@@ -19,11 +27,13 @@ export default function Home() {
               <Link to={to} key={to}>
                 <div className={classes["item"]}>
                   <p>{label}</p>
-                  <img
-                    src={demo}
-                    alt={label}
-                    className={classes["floating-image"]}
-                  />
+                  {demo && (
+                    <img
+                      src={demo}
+                      alt={label}
+                      className={classes["floating-image"]}
+                    />
+                  )}
                 </div>
               </Link>
             );

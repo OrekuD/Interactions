@@ -1,0 +1,89 @@
+@import "../../scss/variables";
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    padding: 2rem 6rem;
+    display: flex;
+    flex-direction: column;
+
+    .wrapper {
+        width: 100%;
+        flex: 1;
+        background-color: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        white-space: nowrap;
+        padding: 24px;
+
+        .slide {
+            display: inline-block;
+            height: 100%;
+            width: 100px;
+            border-radius: 24px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            margin-right: 24px;
+            transition:
+                width 0.7s $easing1,
+                transform 0.7s $easing1;
+            /* transform: translateX(-300px); */
+
+            .content {
+                position: absolute;
+                left: 0%;
+                top: 0;
+                height: 100%;
+                z-index: 10;
+                padding: 2rem;
+
+                .description {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    color: #657af3;
+                    margin-bottom: 0.5rem;
+                    font-size: 1rem;
+                    opacity: 0;
+                    transition: opacity 0.5s $easing1;
+                }
+
+                .name {
+                    font-weight: 500;
+                    color: #1d1d1d;
+                    font-weight: 700;
+                    font-size: 2rem;
+                    opacity: 0;
+                    transition: opacity 0.5s $easing1;
+                }
+            }
+
+            .image {
+                position: absolute;
+                left: 50%;
+                top: 0;
+                height: 100%;
+                object-fit: cover;
+                transform: translateX(-50%);
+                z-index: 5;
+
+                &::selection {
+                    background: none;
+                }
+            }
+
+            &:hover {
+                width: 130px;
+
+                .content {
+                    .description,
+                    .name {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
