@@ -18,6 +18,19 @@
     color: black;
 }
 
+@font-face {
+    font-family: "FKGroteskNeue";
+    src: url("../fonts/FKGroteskNeue-Medium.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "TiemposFine";
+    src: url("../fonts/TiemposFine-LightItalic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
 html,
 body,
 #root {

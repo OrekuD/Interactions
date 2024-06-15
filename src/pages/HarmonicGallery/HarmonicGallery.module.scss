@@ -41,7 +41,7 @@
     pointer-events: none;
     transform: translate(
         calc(var(--mouse-x) + var(--mouse-offset-x)),
-        calc(var(--mouse-y))
+        var(--mouse-y)
     );
     transition:
         transform 0.1s ease,

@@ -1,0 +1,207 @@
+@import "../../scss/variables";
+
+$vertical-spacing: 10rem;
+$horizontal-spacing: 7rem;
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #fded06;
+
+    .focus-container {
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        z-index: 100;
+        opacity: var(--focus-opacity);
+        /* transform: translate(
+            calc(var(--mouse-x) - 50%),
+            calc(var(--mouse-y) - 50%)
+        ); */
+
+        .top-left {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 2px;
+                height: 80px;
+                background: black;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80px;
+                height: 2px;
+                background: black;
+            }
+        }
+
+        .top-right {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 2px;
+                height: 80px;
+                background: black;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 80px;
+                height: 2px;
+                background: black;
+            }
+        }
+
+        .bottom-left {
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 2px;
+                height: 80px;
+                background: black;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 80px;
+                height: 2px;
+                background: black;
+            }
+        }
+
+        .bottom-right {
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 2px;
+                height: 80px;
+                background: black;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 80px;
+                height: 2px;
+                background: black;
+            }
+        }
+    }
+
+    .canvas-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .canvas {
+            position: relative;
+            width: 200%;
+            height: 200%;
+            transition: transform 1s ease;
+            transform: translate(
+                calc(var(--mouse-x) * -1),
+                calc(var(--mouse-y) * -1)
+            );
+
+            img {
+                position: absolute;
+                object-fit: cover;
+                width: 450px;
+                height: 450px;
+                transition: transform 1s ease;
+                /* transform: translate(
+                    calc(var(--mouse-x) * -1),
+                    calc(var(--mouse-y) * -1)
+                ); */
+
+                &:hover {
+                    /* transform: translate(
+                            calc(var(--mouse-x) * -1),
+                            calc(var(--mouse-y) * -1)
+                        )
+                        scale(1.1); */
+                }
+
+                &:nth-of-type(1) {
+                    top: 35%;
+                    left: 5%;
+                }
+
+                &:nth-of-type(2) {
+                    top: calc(35% + $vertical-spacing + 450px);
+                    left: 5%;
+                }
+
+                &:nth-of-type(3) {
+                    top: 30%;
+                    left: calc(5% + $horizontal-spacing + 450px);
+                }
+
+                &:nth-of-type(4) {
+                    top: calc(30% + $vertical-spacing + 450px);
+                    left: calc(5% + $horizontal-spacing + 450px);
+                }
+
+                &:nth-of-type(4) {
+                    top: calc(30% + $vertical-spacing + 450px);
+                    left: calc(5% + $horizontal-spacing + 450px);
+                }
+
+                &:nth-of-type(5) {
+                    top: 15%;
+                    left: calc(5% + (2 * $horizontal-spacing) + (2 * 450px));
+                }
+
+                &:nth-of-type(6) {
+                    top: calc(15% + $vertical-spacing + 450px);
+                    left: calc(5% + (2 * $horizontal-spacing) + (2 * 450px));
+                }
+
+                &:nth-of-type(7) {
+                    top: calc(15% + (2 * $vertical-spacing) + (2 * 450px));
+                    left: calc(5% + (2 * $horizontal-spacing) + (2 * 450px));
+                }
+
+                &:nth-of-type(8) {
+                    top: 30%;
+                    left: calc(5% + (3 * $horizontal-spacing) + (3 * 450px));
+                }
+
+                &:nth-of-type(9) {
+                    top: calc(30% + $vertical-spacing + 450px);
+                    left: calc(5% + (3 * $horizontal-spacing) + (3 * 450px));
+                }
+
+                &:nth-of-type(10) {
+                    top: 35%;
+                    left: calc(5% + (4 * $horizontal-spacing) + (4 * 450px));
+                }
+
+                &:nth-of-type(11) {
+                    top: calc(35% + $vertical-spacing + 450px);
+                    left: calc(5% + (4 * $horizontal-spacing) + (4 * 450px));
+                }
+            }
+        }
+    }
+}

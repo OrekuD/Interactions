@@ -1,0 +1,192 @@
+@import "../../scss/variables";
+
+$easing: cubic-bezier(0.07, 0.51, 0.18, 0.96);
+
+@mixin hovered-items {
+    .menu-items {
+        background: purple;
+    }
+    .menu-items.menu-item & {
+        opacity: 0.5;
+        background: red;
+    }
+}
+
+.container {
+    width: 100%;
+    flex: 1;
+    background: #d6dae3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+
+    .menu-items {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        column-gap: 2rem;
+
+        .mask {
+            width: fit-content;
+            height: fit-content;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .menu-item {
+            display: flex;
+            position: relative;
+            isolation: isolate;
+            transition: opacity 0.4s ease;
+
+            .title {
+                font-family: FKGroteskNeue;
+                font-weight: 500;
+                font-size: clamp(40px, 5.2vw, 142px);
+                line-height: clamp(48px, 5.4vw, 150px);
+                letter-spacing: clamp(
+                    calc((40px / 25) * -1),
+                    calc((5vw / 25) * -1),
+                    calc((142px / 25) * -1)
+                );
+                animation: translate-up 1s $easing1;
+            }
+
+            sup {
+                font-family: FKGroteskNeue;
+                font-weight: 500;
+                font-size: calc(5vw * 0.64);
+                line-height: calc(5vw * 0.64);
+                letter-spacing: calc(((5vw * 0.64) / 25) * -1);
+                animation: translate-up 1s $easing1;
+            }
+
+            .services {
+                margin-left: 1rem;
+                p {
+                    font-family: TiemposFine;
+                    font-size: 1.25rem;
+                    line-height: 1.55rem;
+                    animation: translate-up 1s $easing1;
+                }
+            }
+
+            .image {
+                position: absolute;
+                z-index: -1;
+                width: 100%;
+                max-width: 450px;
+                max-height: 450px;
+                object-fit: contain;
+                border-radius: 10px;
+                overflow: hidden;
+                opacity: 0;
+                /* mix-blend-mode: difference; */
+                pointer-events: none;
+                transform-origin: 0 100%;
+                transform: translateY(-90%) scale(0.4);
+                transition:
+                    top 0.05s $easing,
+                    left 0.05s $easing,
+                    transform 0.8s $easing,
+                    opacity 0.3s $easing;
+            }
+
+            &:hover {
+                .image {
+                    opacity: 1;
+                    transform: translateY(-90%) scale(1);
+                }
+            }
+
+            .image-1 {
+                top: calc(var(--mouse-y) - var(--offset-y-1));
+                left: calc(var(--mouse-x) - var(--offset-x-1));
+            }
+
+            .image-2 {
+                top: calc(var(--mouse-y) - var(--offset-y-2));
+                left: calc(var(--mouse-x) - var(--offset-x-2));
+            }
+
+            .image-3 {
+                top: calc(var(--mouse-y) - var(--offset-y-3));
+                left: calc(var(--mouse-x) - var(--offset-x-3));
+            }
+
+            .image-4 {
+                top: calc(var(--mouse-y) - var(--offset-y-4));
+                left: calc(var(--mouse-x) - var(--offset-x-4));
+            }
+
+            .image-5 {
+                top: calc(var(--mouse-y) - var(--offset-y-5));
+                left: calc(var(--mouse-x) - var(--offset-x-5));
+            }
+
+            .image-6 {
+                top: calc(var(--mouse-y) - var(--offset-y-6));
+                left: calc(var(--mouse-x) - var(--offset-x-6));
+            }
+
+            .image-7 {
+                top: calc(var(--mouse-y) - var(--offset-y-7));
+                left: calc(var(--mouse-x) - var(--offset-x-7));
+            }
+
+            .image-8 {
+                top: calc(var(--mouse-y) - var(--offset-y-8));
+                left: calc(var(--mouse-x) - var(--offset-x-8));
+            }
+
+            .image-9 {
+                top: calc(var(--mouse-y) - var(--offset-y-9));
+                left: calc(var(--mouse-x) - var(--offset-x-9));
+            }
+
+            .image-10 {
+                top: calc(var(--mouse-y) - var(--offset-y-10));
+                left: calc(var(--mouse-x) - var(--offset-x-10));
+            }
+
+            .image-11 {
+                top: calc(var(--mouse-y) - var(--offset-y-11));
+                left: calc(var(--mouse-x) - var(--offset-x-11));
+            }
+
+            .image-12 {
+                top: calc(var(--mouse-y) - var(--offset-y-12));
+                left: calc(var(--mouse-x) - var(--offset-x-12));
+            }
+
+            .image-13 {
+                top: calc(var(--mouse-y) - var(--offset-y-13));
+                left: calc(var(--mouse-x) - var(--offset-x-13));
+            }
+        }
+
+        /* .menu-item:has(:hover) {
+            opacity: 1;
+
+            .menu-item:not(:has(:hover)) {
+                opacity: 0.5;
+            }
+        } */
+
+        /* .menu-item:not(:has(:hover)) {
+            opacity: 0.5;
+        } */
+    }
+}
+
+@keyframes translate-up {
+    from {
+        transform: translateY(150%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}

@@ -1,7 +1,13 @@
 import React from "react";
 
 const root: any = document.querySelector(":root");
+/***
 
+adds --mouse-x css variable based on mouse x position
+
+adds --mouse-y css variable based on mouse y position
+
+***/
 export default function useMousePositionCSS() {
   React.useEffect(() => {
     function onMouseMove(e: MouseEvent) {

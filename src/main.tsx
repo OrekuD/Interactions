@@ -7,6 +7,8 @@ import ViennaSlider from "./pages/ViennaSlider/ViennaSlider.tsx";
 import RadialDropdown from "./pages/RadialDropdown/RadialDropdown.tsx";
 import StripeSpeakersSlider from "./pages/StripeSpeakersSlider/StripeSpeakersSlider.tsx";
 import HarmonicGallery from "./pages/HarmonicGallery/HarmonicGallery.tsx";
+import ArtistGallery from "./pages/ArtistGallery/ArtistGallery.tsx";
+import ImageHoverMenu from "./pages/ImageHoverMenu/ImageHoverMenu.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: "harmonic-gallery",
     element: <HarmonicGallery />,
+  },
+  {
+    path: "artist-gallery",
+    element: <ArtistGallery />,
+  },
+  {
+    path: "image-hover-menu",
+    element: <ImageHoverMenu />,
   },
 ]);
 

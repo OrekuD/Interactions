@@ -11,49 +11,79 @@ import video5 from "../../assets/harmonic-gallery/5.mp4";
 import video6 from "../../assets/harmonic-gallery/6.mp4";
 import video7 from "../../assets/harmonic-gallery/7.mp4";
 import video8 from "../../assets/harmonic-gallery/8.mp4";
+import doFx from "../../assets/harmonic-gallery/do.mp3";
+import reFx from "../../assets/harmonic-gallery/re.mp3";
+import miFx from "../../assets/harmonic-gallery/mi.mp3";
+import laFx from "../../assets/harmonic-gallery/la.mp3";
+import faFx from "../../assets/harmonic-gallery/fa.mp3";
+import doStretchedFx from "../../assets/harmonic-gallery/do.mp3";
+import solFx from "../../assets/harmonic-gallery/sol.mp3";
+import tiFx from "../../assets/harmonic-gallery/ti.mp3";
+
+const doAudio = document.createElement("audio");
+doAudio.src = doFx;
+doAudio.loop = false;
 
 const gallery = [
   {
     label: "Alstro",
     height: 130,
     video: video1,
+    audioFx: doFx,
   },
   {
     label: "GSAP",
     height: 170,
     video: video2,
+    audioFx: reFx,
   },
   {
     label: "Carot",
     height: 130,
     video: video3,
+    audioFx: miFx,
   },
   {
     label: "Cult Gaia",
     height: 170,
     video: video4,
+    audioFx: faFx,
   },
   {
     label: "SPARQ",
     height: 190,
     video: video5,
+    audioFx: solFx,
   },
   {
     label: "Under Armour",
     height: 190,
     video: video6,
+    audioFx: laFx,
   },
   {
     label: "Senreve",
     height: 170,
     video: video7,
+    audioFx: tiFx,
   },
   {
     label: "Marc & Rose",
     height: 160,
     video: video8,
+    audioFx: doFx,
   },
 ];
+
+const withSound = gallery.map((item) => {
+  const audio = document.createElement("audio");
+  audio.src = item.audioFx;
+  audio.loop = false;
+  return {
+    ...item,
+    audio,
+  };
+});
 
 const root: any = document.querySelector(":root");
 root.style.setProperty("--mouse-offset-x", "0px");
@@ -82,14 +112,16 @@ export default function HarmonicGallery() {
           root.style.setProperty("--mouse-opacity", 0);
         }}
       >
-        {gallery.map(({ video, label, height }, index) => {
+        {withSound.map(({ video, label, height, audioFx, audio }, index) => {
           return (
             <div
               className={classes["slide"]}
               key={label}
-              onMouseOver={() => {
-                const audio = document.createElement("audio");
-                audio.src = fxSound;
+              onMouseEnter={() => {
+                // const audio = document.createElement("audio");
+                // audio.src = fxSound;
+                // audio.src = audioFx;
+                // audio.loop = false;
                 audio.play();
 
                 paragraphRef.current!.innerText = label;

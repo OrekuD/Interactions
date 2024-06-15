@@ -14,6 +14,14 @@ const links = [
     label: "Harmonic Gallery",
     to: "/harmonic-gallery",
   },
+  {
+    label: "Artist Gallery",
+    to: "/artist-gallery",
+  },
+  {
+    label: "Image Hover Menu",
+    to: "/image-hover-menu",
+  },
 ];
 
 export default function Home() {
