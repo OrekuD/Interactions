@@ -79,7 +79,7 @@ export default function ArtistGallery() {
   useMousePositionCSS();
 
   function onItemHover(e: React.MouseEvent<HTMLImageElement>, index: number) {
-    console.log(Date.now(), " mouse over: ", index);
+    console.log(Date.now(), " mouse over: ", index, e);
     // console.log({
     //   clientX: e.clientX,
     //   clientY: e.clientY,

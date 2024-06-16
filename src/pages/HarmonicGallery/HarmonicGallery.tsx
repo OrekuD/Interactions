@@ -1,7 +1,7 @@
 import React from "react";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import classes from "./HarmonicGallery.module.scss";
-import fxSound from "../../assets/harmonic-gallery/fx.mp3";
+// import fxSound from "../../assets/harmonic-gallery/fx.mp3";
 import useMousePositionCSS from "../../hooks/useMousePositionCSS";
 import video1 from "../../assets/harmonic-gallery/1.mp4";
 import video2 from "../../assets/harmonic-gallery/2.mp4";
@@ -16,11 +16,8 @@ import reFx from "../../assets/harmonic-gallery/re.mp3";
 import miFx from "../../assets/harmonic-gallery/mi.mp3";
 import laFx from "../../assets/harmonic-gallery/la.mp3";
 import faFx from "../../assets/harmonic-gallery/fa.mp3";
-import doStretchedFx from "../../assets/harmonic-gallery/do.mp3";
 import solFx from "../../assets/harmonic-gallery/sol.mp3";
 import tiFx from "../../assets/harmonic-gallery/ti.mp3";
-import { motion } from "framer-motion";
-import { useLocation } from "react-router";
 
 const doAudio = document.createElement("audio");
 doAudio.src = doFx;
@@ -114,7 +111,7 @@ export default function HarmonicGallery() {
           root.style.setProperty("--mouse-opacity", 0);
         }}
       >
-        {withSound.map(({ video, label, height, audioFx, audio }, index) => {
+        {withSound.map(({ video, label, height, audio }, index) => {
           return (
             <div
               className={classes["slide"]}
