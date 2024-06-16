@@ -14,7 +14,6 @@ import image10 from "../../assets/image-hover-menu/10.webp";
 import image11 from "../../assets/image-hover-menu/11.webp";
 import image12 from "../../assets/image-hover-menu/12.webp";
 import image13 from "../../assets/image-hover-menu/13.webp";
-import { Link } from "react-router-dom";
 import useMousePositionCSS from "../../hooks/useMousePositionCSS";
 
 const menuItems = [
@@ -98,57 +97,56 @@ export default function ImageHoverMenu() {
       inspirationUrl="https://ang-studio.com/work"
     >
       <div className={classes["container"]}>
-        <div className={classes["menu-items"]}>
+        <ul className={classes["menu-items"]}>
           {menuItems.map(({ image, services, title, sup }, index) => {
             return (
-              <Link to="#" key={title}>
-                <div
-                  className={classes["menu-item"]}
-                  style={{
-                    zIndex: index === hoveredIndex ? 100 : index,
-                    opacity:
-                      hoveredIndex === -1 || hoveredIndex === index ? 1 : 0.3,
-                  }}
-                  onMouseOver={(e) => {
-                    setHoveredIndex(index);
-                    root.style.setProperty(
-                      `--offset-x-${index + 1}`,
-                      `${e.currentTarget.offsetLeft}px`,
-                    );
-                    root.style.setProperty(
-                      `--offset-y-${index + 1}`,
-                      `${e.currentTarget.offsetTop}px`,
-                    );
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredIndex(-1);
-                  }}
-                >
-                  <div className={classes["mask"]}>
-                    <p className={classes["title"]}>{title}</p>
-                  </div>
-                  {Boolean(sup) && (
-                    <div className={classes["mask"]}>
-                      <sup>{sup}</sup>
-                    </div>
-                  )}
-                  <div className={classes["services"]}>
-                    {services.map((service) => (
-                      <div className={classes["mask"]} key={service}>
-                        <p>{service}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <img
-                    src={image}
-                    alt={`${title} image`}
-                    className={`${classes["image"]} ${classes[`image-${index + 1}`]}`}
-                  />
+              <li
+                className={classes["menu-item"]}
+                key={title}
+                style={{
+                  zIndex: index === hoveredIndex ? menuItems.length + 1 : index,
+                  opacity:
+                    hoveredIndex === -1 || hoveredIndex === index ? 1 : 0.3,
+                }}
+                onMouseOver={(e) => {
+                  setHoveredIndex(index);
+                  root.style.setProperty(
+                    `--offset-x-${index + 1}`,
+                    `${e.currentTarget.offsetLeft}px`,
+                  );
+                  root.style.setProperty(
+                    `--offset-y-${index + 1}`,
+                    `${e.currentTarget.offsetTop}px`,
+                  );
+                }}
+                onMouseLeave={() => {
+                  setHoveredIndex(-1);
+                }}
+              >
+                <div className={classes["mask"]}>
+                  <p className={classes["title"]}>{title}</p>
                 </div>
-              </Link>
+                {Boolean(sup) && (
+                  <div className={classes["mask"]}>
+                    <sup>{sup}</sup>
+                  </div>
+                )}
+                <div className={classes["services"]}>
+                  {services.map((service) => (
+                    <div className={classes["mask"]} key={service}>
+                      <p>{service}</p>
+                    </div>
+                  ))}
+                </div>
+                <div
+                  className={`${classes["image"]} ${classes[`image-${index + 1}`]}`}
+                >
+                  <img src={image} alt={`${title} image`} />
+                </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </PageWrapper>
   );
