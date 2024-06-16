@@ -2,16 +2,6 @@
 
 $easing: cubic-bezier(0.07, 0.51, 0.18, 0.96);
 
-@mixin hovered-items {
-    .menu-items {
-        background: purple;
-    }
-    .menu-items.menu-item & {
-        opacity: 0.5;
-        background: red;
-    }
-}
-
 .container {
     width: 100%;
     flex: 1;

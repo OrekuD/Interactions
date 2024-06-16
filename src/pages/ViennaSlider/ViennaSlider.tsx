@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ViennaSlider.module.scss";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import useKeyPress from "../../hooks/useKeyPress";
+import useArrowControls from "../../hooks/useArrowControls";
 
 type ViennaSliderProps = {
   images?: Array<string>;
@@ -22,37 +23,11 @@ export default function ViennaSlider(props: ViennaSliderProps) {
     setIsSlideActive(false);
   });
 
-  useKeyPress("ArrowUp", () => {
-    if (!isSlideActive) return;
-    setActiveIndex((prevValue) =>
-      prevValue === 0 ? prevValue : prevValue - 1,
-    );
-  });
-
-  useKeyPress("ArrowLeft", () => {
-    if (!isSlideActive) return;
-    setActiveIndex((prevValue) =>
-      prevValue === 0 ? prevValue : prevValue - 1,
-    );
-  });
-
-  useKeyPress("ArrowDown", () => {
-    if (!isSlideActive) return;
-    setActiveIndex((prevValue) =>
-      prevValue === images.length - 1 ? prevValue : prevValue + 1,
-    );
-  });
-
-  useKeyPress("ArrowRight", () => {
-    if (!isSlideActive) return;
-    setActiveIndex((prevValue) =>
-      prevValue === images.length - 1 ? prevValue : prevValue + 1,
-    );
-  });
+  useArrowControls(images.length, setActiveIndex, !isSlideActive);
 
   return (
     <PageWrapper
-      title="Vienna Slider"
+      title="Vienna Images Slider"
       inspirationUrl="https://x.com/nickpylll/status/1800110285069721793"
     >
       <div className={classes["container"]}>

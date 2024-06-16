@@ -19,6 +19,8 @@ import faFx from "../../assets/harmonic-gallery/fa.mp3";
 import doStretchedFx from "../../assets/harmonic-gallery/do.mp3";
 import solFx from "../../assets/harmonic-gallery/sol.mp3";
 import tiFx from "../../assets/harmonic-gallery/ti.mp3";
+import { motion } from "framer-motion";
+import { useLocation } from "react-router";
 
 const doAudio = document.createElement("audio");
 doAudio.src = doFx;

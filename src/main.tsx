@@ -9,6 +9,7 @@ import StripeSpeakersSlider from "./pages/StripeSpeakersSlider/StripeSpeakersSli
 import HarmonicGallery from "./pages/HarmonicGallery/HarmonicGallery.tsx";
 import ArtistGallery from "./pages/ArtistGallery/ArtistGallery.tsx";
 import ImageHoverMenu from "./pages/ImageHoverMenu/ImageHoverMenu.tsx";
+import CursorImageTrail from "./pages/CursorImageTrail/CursorImageTrail.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "artist-gallery",
     element: <ArtistGallery />,
+  },
+  {
+    path: "cursor-image-trail",
+    element: <CursorImageTrail />,
   },
   {
     path: "image-hover-menu",

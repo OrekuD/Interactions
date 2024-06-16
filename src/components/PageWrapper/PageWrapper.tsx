@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import classes from "./PageWrapper.module.scss";
+import { motion } from "framer-motion";
 
 type PageWrapperProps = {
   title: string;
@@ -14,6 +15,7 @@ export default function PageWrapper({
   inspirationUrl,
 }: React.PropsWithChildren<PageWrapperProps>) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div
@@ -40,7 +42,9 @@ export default function PageWrapper({
             />
           </svg>
         </button>
-        <p className={classes["title"]}>{title}</p>
+        <motion.p layoutId={location.pathname} className={classes["title"]}>
+          {title}
+        </motion.p>
         {Boolean(inspirationUrl?.trim()) && (
           <a href={inspirationUrl} className={classes["inspiration"]}>
             <p className={classes["title"]}>Inspiration</p>

@@ -11,6 +11,7 @@ import ted from "../../assets/stripe-slider/ted_power.jpg";
 import simon from "../../assets/stripe-slider/simon_taylor.jpg";
 import angela from "../../assets/stripe-slider/angela_strange.jpg";
 import christa from "../../assets/stripe-slider/christa_davies.jpg";
+import useArrowControls from "../../hooks/useArrowControls";
 
 const expandedWidth = 550;
 
@@ -68,6 +69,8 @@ export default function StripeSpeakersSlider() {
       adjustSlide(slideIndex);
     }
 
+    onResize();
+
     window.addEventListener("resize", onResize);
 
     return () => window.removeEventListener("resize", onResize);
@@ -93,6 +96,8 @@ export default function StripeSpeakersSlider() {
 
     root.style.setProperty("--translate-x", `${translateX}px`);
   }
+
+  useArrowControls(speakers.length, setSlideIndex);
 
   return (
     <PageWrapper title="Stripe Speakers Slider">

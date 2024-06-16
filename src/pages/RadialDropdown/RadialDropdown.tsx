@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./RadialDropdown.module.scss";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import useKeyPress from "../../hooks/useKeyPress";
+import useArrowControls from "../../hooks/useArrowControls";
 
 type RadialDropdownProps = {
   options?: Array<string>;
@@ -26,19 +27,7 @@ export default function RadialDropdown(props: RadialDropdownProps) {
     setIsOpen(false);
   });
 
-  useKeyPress("ArrowUp", () => {
-    if (!isOpen) return;
-    setSelectedIndex((prevValue) =>
-      prevValue === 0 ? prevValue : prevValue - 1,
-    );
-  });
-
-  useKeyPress("ArrowDown", () => {
-    if (!isOpen) return;
-    setSelectedIndex((prevValue) =>
-      prevValue === options.length - 1 ? prevValue : prevValue + 1,
-    );
-  });
+  useArrowControls(options.length, setSelectedIndex, !isOpen);
 
   return (
     <PageWrapper
