@@ -102,25 +102,19 @@ export default function HarmonicGallery() {
         <p ref={paragraphRef}></p>
       </div>
       <p className={classes["hint"]}>Sound on</p>
-      <div
-        className={classes["container"]}
-        onMouseOver={() => {
-          root.style.setProperty("--mouse-opacity", 1);
-        }}
-        onMouseLeave={() => {
-          root.style.setProperty("--mouse-opacity", 0);
-        }}
-      >
+      <div className={classes["container"]}>
         {withSound.map(({ video, label, height, audio }, index) => {
           return (
             <div
               className={classes["slide"]}
               key={label}
+              onMouseOver={() => {
+                root.style.setProperty("--mouse-opacity", 1);
+              }}
+              onMouseLeave={() => {
+                root.style.setProperty("--mouse-opacity", 0);
+              }}
               onMouseEnter={() => {
-                // const audio = document.createElement("audio");
-                // audio.src = fxSound;
-                // audio.src = audioFx;
-                // audio.loop = false;
                 audio.play();
 
                 paragraphRef.current!.innerText = label;

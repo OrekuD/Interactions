@@ -46,7 +46,12 @@ export default function PageWrapper({
           {title}
         </motion.p>
         {Boolean(inspirationUrl?.trim()) && (
-          <a href={inspirationUrl} className={classes["inspiration"]}>
+          <a
+            href={inspirationUrl}
+            target="__black"
+            rel="noreferrer noopener"
+            className={classes["inspiration"]}
+          >
             <p className={classes["title"]}>Inspiration</p>
           </a>
         )}
