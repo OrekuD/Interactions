@@ -57,7 +57,7 @@ export default function StepperInteraction() {
                         className={classes["stepper__value"]}
                         key={_index}
                         style={{
-                          transform: `translateY(${offset * 34}px) scale(${isActive ? 1 : 0.6})`,
+                          transform: `translateY(${offset * 100}%) scale(${isActive ? 1 : 0.6})`,
                           opacity: isActive ? 1 : 0,
                           filter: isActive ? "blur(0px)" : "blur(5px)",
                         }}

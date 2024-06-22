@@ -44,7 +44,7 @@
         height: 34px;
 
         .stepper__column {
-            height: 34px;
+            height: 100%;
             width: 20px;
             position: relative;
 
@@ -52,7 +52,7 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                height: 34px;
+                height: 100%;
                 width: 100%;
                 display: flex;
                 align-items: center;
