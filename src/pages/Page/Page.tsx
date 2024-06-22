@@ -1,4 +1,3 @@
-// import React from "react";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import classes from "./Page.module.scss";
 

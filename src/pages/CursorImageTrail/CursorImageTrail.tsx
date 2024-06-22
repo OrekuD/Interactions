@@ -1,4 +1,3 @@
-// import React from "react";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import useMousePositionCSS from "../../hooks/useMousePositionCSS";
 import classes from "./CursorImageTrail.module.scss";
@@ -46,6 +45,7 @@ export default function CursorImageTrail() {
         return (
           <img
             src={image}
+            key={index}
             className={classes["image"]}
             style={{
               "--duration": `${0.25 + index * 0.075}s`,

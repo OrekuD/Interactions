@@ -1,0 +1,74 @@
+@import "../../scss/variables";
+
+.stepper {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 10px;
+    border: 1px solid #ededed;
+    background: white;
+    border-radius: 33px;
+    overflow: hidden;
+
+    .stepper__button {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0eff6;
+        transition:
+            background 0.1s ease-in,
+            opacity 0.3s ease-in;
+
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        &:active:not(:disabled) {
+            background: #e2e1ea;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+
+    .stepper__value-container {
+        display: flex;
+        align-items: center;
+        padding: 0 0.6rem;
+        height: 34px;
+
+        .stepper__column {
+            height: 34px;
+            width: 20px;
+            position: relative;
+
+            .stepper__value {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 34px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    opacity 0.3s $easing1,
+                    filter 0.3s $easing1,
+                    transform 0.3s $easing1;
+
+                p {
+                    font-size: 2rem;
+                    font-family: "SFProRoundedBold";
+                    font-weight: 700;
+                    font-variant-numeric: tabular-nums;
+                }
+            }
+        }
+    }
+}

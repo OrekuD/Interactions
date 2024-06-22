@@ -10,6 +10,7 @@ import HarmonicGallery from "./pages/HarmonicGallery/HarmonicGallery.tsx";
 import ArtistGallery from "./pages/ArtistGallery/ArtistGallery.tsx";
 import ImageHoverMenu from "./pages/ImageHoverMenu/ImageHoverMenu.tsx";
 import CursorImageTrail from "./pages/CursorImageTrail/CursorImageTrail.tsx";
+import StepperInteraction from "./pages/StepperInteraction/StepperInteraction.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "image-hover-menu",
     element: <ImageHoverMenu />,
+  },
+  {
+    path: "stepper-interaction",
+    element: <StepperInteraction />,
   },
 ]);
 

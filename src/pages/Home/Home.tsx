@@ -27,6 +27,10 @@ const links = [
     label: "Cursor Image Trail",
     to: "/cursor-image-trail",
   },
+  {
+    label: "Stepper Interaction",
+    to: "/stepper-interaction",
+  },
 ];
 
 export default function Home() {
