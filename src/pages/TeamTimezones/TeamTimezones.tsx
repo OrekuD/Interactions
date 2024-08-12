@@ -173,18 +173,7 @@ export default function TeamTimezones() {
     const userHourAngle = ((date.getHours() % 12) / 12) * 360;
     const teamMemberHourAngle = ((zoned.getHours() % 12) / 12) * 360;
 
-    console.log({
-      zoned: zoned.getHours(),
-      date: date.getHours(),
-    });
-
-    if (zoned.getHours() % 12 < date.getHours() % 12) {
-      console.log("here");
-      return generateArcPath(170, 170, 165, teamMemberHourAngle, userHourAngle);
-    }
-
-    console.log("here-1");
-
+    // return generateArcPath(170, 170, 165, teamMemberHourAngle, userHourAngle);
     return generateArcPath(170, 170, 165, userHourAngle, teamMemberHourAngle);
   }, [hoveredTeamMemberTimezone]);
 
