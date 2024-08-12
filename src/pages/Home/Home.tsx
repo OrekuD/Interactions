@@ -16,6 +16,10 @@ const links = [
     to: "/stripe-speakers-slider",
   },
   {
+    label: "Team Timezones",
+    to: "/team-timezones",
+  },
+  {
     label: "Harmonic Gallery",
     to: "/harmonic-gallery",
   },
@@ -28,8 +32,12 @@ const links = [
     to: "/cursor-image-trail",
   },
   {
-    label: "Stepper Interaction",
-    to: "/stepper-interaction",
+    label: "Stepper",
+    to: "/stepper",
+  },
+  {
+    label: "Summary Feed",
+    to: "/summary-feed",
   },
 ];
 

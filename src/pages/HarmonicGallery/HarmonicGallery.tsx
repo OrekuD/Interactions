@@ -115,6 +115,8 @@ export default function HarmonicGallery() {
                 root.style.setProperty("--mouse-opacity", 0);
               }}
               onMouseEnter={() => {
+                audio.pause();
+                audio.currentTime = 0;
                 audio.play();
 
                 paragraphRef.current!.innerText = label;

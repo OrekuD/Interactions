@@ -1,6 +1,6 @@
 import React from "react";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
-import classes from "./StepperInteraction.module.scss";
+import classes from "./Stepper.module.scss";
 import addSound from "../../assets/stepper-interaction/add.mp3";
 import minusSound from "../../assets/stepper-interaction/minus.mp3";
 
@@ -12,12 +12,12 @@ addSoundAudio.src = addSound;
 const minusSoundAudio = document.createElement("audio");
 minusSoundAudio.src = minusSound;
 
-export default function StepperInteraction() {
-  const [count, setCount] = React.useState(5);
+export default function Stepper() {
+  const [count, setCount] = React.useState(22);
 
   return (
     <PageWrapper
-      title="Stepper Interaction"
+      title="Stepper"
       inspirationUrl="https://x.com/nitishkmrk/status/1804132896766308587"
     >
       <div className={classes["stepper"]}>

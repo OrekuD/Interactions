@@ -10,7 +10,9 @@ import HarmonicGallery from "./pages/HarmonicGallery/HarmonicGallery.tsx";
 import ArtistGallery from "./pages/ArtistGallery/ArtistGallery.tsx";
 import ImageHoverMenu from "./pages/ImageHoverMenu/ImageHoverMenu.tsx";
 import CursorImageTrail from "./pages/CursorImageTrail/CursorImageTrail.tsx";
-import StepperInteraction from "./pages/StepperInteraction/StepperInteraction.tsx";
+import Stepper from "./pages/Stepper/Stepper.tsx";
+import SummaryFeed from "./pages/SummaryFeed/SummaryFeed.tsx";
+import TeamTimezones from "./pages/TeamTimezones/TeamTimezones.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
     element: <HarmonicGallery />,
   },
   {
+    path: "team-timezones",
+    element: <TeamTimezones />,
+  },
+  {
     path: "artist-gallery",
     element: <ArtistGallery />,
   },
@@ -46,8 +52,12 @@ const router = createBrowserRouter([
     element: <ImageHoverMenu />,
   },
   {
-    path: "stepper-interaction",
-    element: <StepperInteraction />,
+    path: "stepper",
+    element: <Stepper />,
+  },
+  {
+    path: "summary-feed",
+    element: <SummaryFeed />,
   },
 ]);
 
