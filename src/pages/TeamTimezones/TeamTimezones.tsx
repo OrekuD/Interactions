@@ -1,7 +1,7 @@
 import { differenceInHours } from "date-fns/differenceInHours";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 import classes from "./TeamTimezones.module.scss";
-import { formatInTimeZone, toDate, toZonedTime } from "date-fns-tz";
+import { formatInTimeZone, toZonedTime } from "date-fns-tz";
 import React from "react";
 
 const ticks = Array(12).fill(null);

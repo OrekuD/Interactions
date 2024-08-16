@@ -7,7 +7,7 @@ export default function useWindowResize() {
   });
 
   React.useEffect(() => {
-    function onResize(e: UIEvent) {
+    function onResize() {
       setDimensions({
         width: window.innerWidth,
         height: window.innerHeight,
