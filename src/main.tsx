@@ -13,6 +13,7 @@ import CursorImageTrail from "./pages/CursorImageTrail/CursorImageTrail.tsx";
 import Stepper from "./pages/Stepper/Stepper.tsx";
 import SummaryFeed from "./pages/SummaryFeed/SummaryFeed.tsx";
 import TeamTimezones from "./pages/TeamTimezones/TeamTimezones.tsx";
+import MoodersMenu from "./pages/MoodersMenu/MoodersMenu.tsx";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
   {
     path: "summary-feed",
     element: <SummaryFeed />,
+  },
+  {
+    path: "mooders-menu",
+    element: <MoodersMenu />,
   },
 ]);
 

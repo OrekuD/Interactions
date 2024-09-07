@@ -194,7 +194,7 @@ export default function TeamTimezones() {
             </div>
 
             <div className={classes["clock"]}>
-              <svg
+              {/**<svg
                 className={classes["clock-gradient"]}
                 width={340}
                 height={340}
@@ -213,7 +213,7 @@ export default function TeamTimezones() {
                   </linearGradient>
                 </defs>
                 <path d={gradientPathD} fill="url(#gradientFill)" />
-              </svg>
+              </svg> **/}
               <div className={classes["clock-time"]}>
                 <div className={classes["clock-time-hours"]}>
                   {ticks.map((_, index) => {

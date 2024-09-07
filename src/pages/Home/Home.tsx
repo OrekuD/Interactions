@@ -39,6 +39,10 @@ const links = [
     label: "Summary Feed",
     to: "/summary-feed",
   },
+  {
+    label: "Mooders Menu",
+    to: "/mooders-menu",
+  },
 ];
 
 export default function Home() {

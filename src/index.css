@@ -37,6 +37,24 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: "SFProRoundedBold";
+    src: url("../fonts/SF-Pro-Rounded-Bold.otf") format("opentype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("../fonts/MaisonNeue-Book.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "MaisonNeue";
+    src: url("../fonts/MaisonNeue-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+
 html,
 body,
 #root {
