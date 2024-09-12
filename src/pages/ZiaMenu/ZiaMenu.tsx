@@ -9,7 +9,7 @@ root.style.setProperty("--mouse-size", "8px");
 root.style.setProperty("--mouse-opacity", "1");
 root.style.setProperty("--mouse-background", "white");
 root.style.setProperty("--mouse-link-opacity", "0");
-root.style.setProperty("--mouse-scale", "0.5");
+root.style.setProperty("--mouse-scale", "0");
 
 function setCursorLink() {
   root.style.setProperty("--mouse-link-opacity", "1");
