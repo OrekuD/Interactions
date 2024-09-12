@@ -13,9 +13,9 @@
         flex-direction: column;
 
         .title {
-            font-size: 6rem;
+            font-size: 3rem;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .list {
@@ -27,12 +27,11 @@
                 cursor: pointer;
 
                 p {
-                    font-size: 4rem;
+                    font-size: 2rem;
                     text-decoration: underline;
                     text-decoration-thickness: 3px;
                     text-underline-offset: 4px;
                     text-decoration-color: transparent;
-                    transition: text-decoration 0.3s ease-in-out;
                 }
 
                 .floating-image {
@@ -44,7 +43,7 @@
                     height: 140px;
                     opacity: 0;
                     transition: opacity 0.4s ease-in-out;
-                    z-index: -1;
+                    z-index: 10;
                     object-fit: contain;
                 }
 

@@ -1,6 +1,7 @@
 import { useLocalStorage } from "usehooks-ts";
 import classes from "./MoodersMenu.module.scss";
 import React from "react";
+import splitText from "../../utils/splitText";
 
 export default function MoodersMenu() {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -169,13 +170,11 @@ function MenuSection({
   children,
   className = "",
 }: {
-  children: React.ReactNode;
+  children: string;
   className?: string;
 }) {
   const split = React.useMemo(() => {
-    if (typeof children !== "string") return [];
-
-    return children.split("");
+    return splitText(children);
   }, [children]);
 
   return (
@@ -183,27 +182,27 @@ function MenuSection({
       <div className={classes["words__wrapper"]}>
         {split.map((val, index) => {
           return (
-            <div
+            <span
               style={{
                 transitionDelay: `${index * 0.013}s`,
               }}
               className={`${classes["words__char"]} ${className}`}
             >
               {val}
-            </div>
+            </span>
           );
         })}
         <div className={classes["words__wrapper-offset"]}>
           {split.map((val, index) => {
             return (
-              <div
+              <span
                 style={{
                   transitionDelay: `${index * 0.013}s`,
                 }}
                 className={`${classes["words__char-offset"]} ${className}`}
               >
                 {val}
-              </div>
+              </span>
             );
           })}
         </div>
