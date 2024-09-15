@@ -24,6 +24,10 @@ function resetCursorLink() {
 
 const links = ["about", "shots", "skills"];
 
+const hello = Array(15).fill(null);
+
+const socialLinks = Array(3).fill(null);
+
 const spanDefaultVariants: Variants = {
   initial: {
     translateY: "100%",
@@ -31,7 +35,7 @@ const spanDefaultVariants: Variants = {
   animate: (delay) => ({
     translateY: "0%",
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: cubicBezier(0.68, -0.55, 0.27, 1.55),
       delay,
     },
@@ -39,7 +43,7 @@ const spanDefaultVariants: Variants = {
   hovered: (delay) => ({
     translateY: "-100%",
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       ease: cubicBezier(0.68, -0.55, 0.27, 1.55),
       delay,
     },
@@ -58,13 +62,53 @@ const spanOffsetVariants: Variants = {
   hovered: (delay) => ({
     translateY: "0%",
     transition: {
-      duration: 0.5,
+      duration: 0.4,
+      ease: cubicBezier(0.68, -0.55, 0.27, 1.55),
+      delay,
+    },
+  }),
+  animate: (delay) => ({
+    translateY: "100%",
+    transition: {
+      duration: 0.6,
       ease: cubicBezier(0.68, -0.55, 0.27, 1.55),
       delay,
     },
   }),
   initial: {
     translateY: "100%",
+  },
+};
+
+const socialLinksVariants: Variants = {
+  initial: {
+    translateY: "80%",
+    opacity: 0,
+  },
+  animate: (delay) => ({
+    translateY: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+      delay,
+    },
+  }),
+  exit: (delay) => ({
+    translateY: "80%",
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+      delay,
+    },
+  }),
+  hover: {
+    scale: 1.2,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut",
+    },
   },
 };
 
@@ -101,21 +145,11 @@ export default function ZiaMenu() {
                   delay: 0.2,
                 },
               }}
-              // style={{
-              //   transform: showMenu ? "translateY(0)" : "translateY(100%)",
-              // }}
             />
           )}
         </AnimatePresence>
 
-        <div
-          className={classes["container__menu-content-wrapper"]}
-          style={
-            {
-              // pointerEvents: showMenu ? "all" : "none",
-            }
-          }
-        >
+        <div className={classes["container__menu-content-wrapper"]}>
           <AnimatePresence>
             {showMenu && (
               <div className={classes["container__menu-content"]}>
@@ -145,17 +179,6 @@ export default function ZiaMenu() {
                               className={classes["span__default"]}
                               variants={spanDefaultVariants}
                               custom={index * 0.05}
-                              // whileHover=""
-                              // whileHover={{
-                              //   translateY: "-100%",
-                              //   transition: {
-                              //     delay: index * 0.05
-                              //   }
-                              // }}
-                              // style={{
-                              //   "--link-delay": `${linkIndex * 0.2 + index * 0.05}s`,
-                              //   "--delay": `${index * 0.05}s`,
-                              // }}
                             >
                               {char}
                             </motion.span>
@@ -173,16 +196,6 @@ export default function ZiaMenu() {
                                 className={classes["span__offset"]}
                                 variants={spanOffsetVariants}
                                 custom={index * 0.05}
-                                // whileHover={{
-                                //   translateY: "0%",
-                                //   transition: {
-                                //     delay: index * 0.05
-                                //   }
-                                // }}
-                                // style={{
-                                //   "--link-delay": `${linkIndex * 0.2 + index * 0.05}s`,
-                                //   "--delay": `${index * 0.05}s`,
-                                // }}
                               >
                                 {char}
                               </motion.span>
@@ -197,44 +210,136 @@ export default function ZiaMenu() {
                       classes["container__menu-content-left-menu-footer"]
                     }
                   >
-                    <AnimatePresence>
-                      {showMenu && (
-                        <motion.div
-                          className={
-                            classes[
-                              "container__menu-content-left-menu-footer-content"
-                            ]
-                          }
-                          onMouseOver={setCursorLink}
-                          onMouseLeave={resetCursorLink}
-                          initial={{
-                            translateY: "100%",
-                          }}
-                          animate={{
-                            translateY: "0%",
-                            transition: {
-                              delay: 0.2,
-                              duration: 0.4,
-                              ease: cubicBezier(0.16, 1, 0.32, 1),
-                            },
-                          }}
-                          exit={{
-                            translateY: "100%",
-                            transition: {
-                              duration: 0.4,
-                              ease: cubicBezier(0.16, 1, 0.32, 1),
-                              delay: 0.2,
-                            },
-                          }}
-                        >
-                          <p>design + develop</p>
-                          <p>amir arhami</p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {showMenu && (
+                      <motion.div
+                        className={
+                          classes[
+                            "container__menu-content-left-menu-footer-content"
+                          ]
+                        }
+                        onMouseOver={setCursorLink}
+                        onMouseLeave={resetCursorLink}
+                        initial={{
+                          translateY: "100%",
+                        }}
+                        animate={{
+                          translateY: "0%",
+                          transition: {
+                            delay: 0.4,
+                            duration: 0.5,
+                            ease: cubicBezier(0.16, 1, 0.32, 1),
+                          },
+                        }}
+                        exit={{
+                          translateY: "100%",
+                          opacity: 0,
+                          transition: {
+                            duration: 0.6,
+                            ease: cubicBezier(0.16, 1, 0.32, 1),
+                            delay: 0.1,
+                          },
+                        }}
+                      >
+                        <p>design + develop</p>
+                        <p>amir arhami</p>
+                      </motion.div>
+                    )}
                   </div>
                 </div>
-                <div className={classes["container__menu-content-right"]}></div>
+                <div className={classes["container__menu-content-right"]}>
+                  <div
+                    className={
+                      classes["container__menu-content-right-menu-top"]
+                    }
+                  >
+                    {showMenu && (
+                      <motion.div
+                        className={
+                          classes[
+                            "container__menu-content-right-menu-top-content"
+                          ]
+                        }
+                        initial={{
+                          translateY: "100%",
+                        }}
+                        animate={{
+                          translateY: "0%",
+                          transition: {
+                            delay: 0.4,
+                            duration: 0.5,
+                            ease: cubicBezier(0.16, 1, 0.32, 1),
+                          },
+                        }}
+                        exit={{
+                          translateY: "100%",
+                          opacity: 0,
+                          transition: {
+                            duration: 0.6,
+                            ease: cubicBezier(0.16, 1, 0.32, 1),
+                            delay: 0.1,
+                          },
+                        }}
+                      >
+                        <p>*</p>
+                        <p>I'm a girl</p>
+                        <p>from the heart of desert!</p>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  <div className={classes["container__menu-social-links"]}>
+                    {socialLinks.map((_, index) => (
+                      <motion.div
+                        className={classes["container__menu-social-link"]}
+                        onMouseOver={setCursorLink}
+                        onMouseLeave={resetCursorLink}
+                        variants={socialLinksVariants}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        custom={(socialLinks.length - 1 - index) * 0.1}
+                        key={index}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <motion.div
+                  className={classes["container__hello-marquee-container"]}
+                  initial={{
+                    opacity: 0,
+                    transform:
+                      "translateY(60px) translateX(30px) rotate(-10deg)",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    transform:
+                      "translateY(30px) translateX(30px) rotate(-10deg)",
+                    transition: {
+                      duration: 0.7,
+                      ease: "easeInOut",
+                    },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    transform:
+                      "translateY(60px) translateX(30px) rotate(-10deg)",
+                    transition: {
+                      duration: 0.7,
+                      ease: "easeInOut",
+                    },
+                  }}
+                >
+                  <div className={classes["container__hello-marquee"]}>
+                    {hello.map((_, index) => (
+                      <span key={index}>hello</span>
+                    ))}
+                  </div>
+                  <div className={classes["container__hello-marquee"]}>
+                    {hello.map((_, index) => (
+                      <span key={index}>hello</span>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
             )}
           </AnimatePresence>
